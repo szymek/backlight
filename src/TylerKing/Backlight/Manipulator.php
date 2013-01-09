@@ -51,7 +51,7 @@ class Manipulator
     }
 
     public function fixOrientation() {
-        if (!in_array($this->type, ['image/jpeg', 'image/jpg', 'image/tiff', 'image/tiff'])) {
+        if (!in_array($this->type, array('image/jpeg', 'image/jpg', 'image/tiff', 'image/tiff'))) {
             return false;
         }
 
@@ -90,7 +90,7 @@ class Manipulator
         $this->width  = $size['width'];
         $this->height = $size['height'];
 
-        return [$this->width, $this->height];
+        return array($this->width, $this->height);
     }
 
     public function getWidth()

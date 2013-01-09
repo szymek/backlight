@@ -43,7 +43,7 @@ class Color
         $width    = $size['width'];
         $height   = $size['height'];
 
-        $map = [];
+        $map = array();
         for ($x = 0; $x < $width; $x++) {
             for ($y = 0; $y < $height; $y++) {
                 $colors = $this->image->getImagePixelColor($x, $y)->getColor();
@@ -52,7 +52,7 @@ class Color
                 $this->green    = $colors['g'];
                 $this->blue     = $colors['b'];
 
-                $map[] = [$x, $y, $this->rgb2hex()];
+                $map[] = array($x, $y, $this->rgb2hex());
             }
         }
 
@@ -88,7 +88,7 @@ class Color
         $this->green  = round($green_total/$total);
         $this->blue   = round($blue_total/$total);
 
-        $background_rgb = [$this->red, $this->green, $this->blue];
+        $background_rgb = array($this->red, $this->green, $this->blue);
         $background_hex = $this->rgb2hex();
 
         $this->rgb2hsv();
@@ -98,19 +98,19 @@ class Color
         $this->value = 90;
 
         $this->hsv2rgb();
-        $glow_rgb   = [$this->red, $this->green, $this->blue];
+        $glow_rgb   = array($this->red, $this->green, $this->blue);
         $glow_hex   = $this->rgb2hex();
 
-        return (object) [
-                            'mean'  => (object) [
+        return (object) array(
+                            'mean'  => (object) array(
                                 'rgb'   => $background_rgb,
                                 'hex'   => $background_hex
-                            ],
-                            'glow'  => (object) [
+                            ),
+                            'glow'  => (object) array(
                                 'rgb'   => $glow_rgb,
                                 'hex'   => $glow_hex
-                            ]
-                        ];
+                            )
+                        );
     }
 
     public function setRed($red)
@@ -197,7 +197,7 @@ class Color
         if ($max != 0) {
             $s = floor($delta/$max*100);
         } else {
-            return [0, 0, 0];
+            return array(0, 0, 0);
         }
 
         if ($this->red == $max) {

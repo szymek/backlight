@@ -54,7 +54,7 @@ class Backlight
         $color  = new Color;
         $map    = $color->setImage($this->image)->getMap();
 
-        $html = ['<style>.bl{position:absolute;width:1px;height:1px}</style>'];
+        $html = array('<style>.bl{position:absolute;width:1px;height:1px}</style>');
         foreach ($map as $entry) {
             list($x, $y, $color) = $entry;
 
