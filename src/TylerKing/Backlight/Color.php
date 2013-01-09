@@ -200,12 +200,14 @@ class Color
             return array(0, 0, 0);
         }
 
-        if ($this->red == $max) {
-            $h = ($this->green-$this->blue)/$delta;
-        } elseif ($this->green == $max) {
-            $h = 2+($this->blue-$this->red)/$delta;
-        } else {
-            $h = 4+($this->red-$this->green)/$delta;
+		if ($delta != 0) {
+        	if ($this->red == $max) {
+            	$h = ($this->green-$this->blue)/$delta;
+        	} elseif ($this->green == $max) {
+            	$h = 2+($this->blue-$this->red)/$delta;
+        	} else {
+            	$h = 4+($this->red-$this->green)/$delta;
+        	}
         }
 
         $h = floor($h*60);
